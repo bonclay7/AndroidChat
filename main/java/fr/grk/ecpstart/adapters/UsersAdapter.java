@@ -58,16 +58,18 @@ public class UsersAdapter extends BaseAdapter {
         TextView handleView = (TextView) convertView.findViewById(R.id.handle);
         handleView.setText(user.getHandle());
 
+        /*
         TextView statusView = (TextView) convertView.findViewById(R.id.status);
         switch (user.getStatus()){
             case "online" : statusView.setText(R.string.onLine); break;
             case "offline" : statusView.setText(R.string.offLine); break;
                 default:statusView.setText("");
         }
+        //*/
 
 
         ImageView profilePictureView = (ImageView) convertView.findViewById(R.id.profile_picture);
-        Picasso.with(convertView.getContext()).load(user.getProfilePicture()).into(profilePictureView);
+        Picasso.with(convertView.getContext()).load(user.getPicture()).into(profilePictureView);
         return convertView;
     }
 

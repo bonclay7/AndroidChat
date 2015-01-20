@@ -10,7 +10,7 @@ public class User implements Parcelable {
     private String _id;
     private String handle;
     private String status;
-    private String profilePicture;
+    private String picture;
 
 
     public String getId() {
@@ -37,12 +37,12 @@ public class User implements Parcelable {
         this.status = status;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class User implements Parcelable {
         dest.writeString(_id);
         dest.writeString(handle);
         dest.writeString(status);
-        dest.writeString(profilePicture);
+        dest.writeString(picture);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -65,7 +65,7 @@ public class User implements Parcelable {
             user._id = source.readString();
             user.handle = source.readString();
             user.status = source.readString();
-            user.profilePicture = source.readString();
+            user.picture = source.readString();
             return user;
         }
 

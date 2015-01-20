@@ -1,6 +1,7 @@
 package fr.grk.ecpstart.network;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 import fr.grk.ecpstart.model.Tweet;
 import fr.grk.ecpstart.model.User;
+import fr.grk.ecpstart.model.Wrapper;
 
 /**
  * Created by grk on 12/12/14.
@@ -37,7 +39,7 @@ public class ApiClient {
     public List<User> getUsers() throws IOException{
         InputStream stream = new URL(API_BASE + "users").openStream();
         String response = IOUtils.toString(stream);
-        return Arrays.asList(new Gson().fromJson(response, User[].class));
+        return (new Gson().fromJson(response, Wrapper.class)).getUsers();
     }
 
 
@@ -55,7 +57,5 @@ public class ApiClient {
                 .build().toString();
         new URL(url).openStream();
     }
-
-
 
 }
